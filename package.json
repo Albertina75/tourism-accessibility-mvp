@@ -1,0 +1,27 @@
+{
+  "name": "tourism-accessibility-mvp",
+  "version": "1.0.0",
+  "description": "A minimum viable product for a tourism accessibility application.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo \"Build script not implemented\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tourism",
+    "accessibility",
+    "react",
+    "express"
+  ],
+  "author": "Albertina75",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"  
+  },
+  "devDependencies": {
+    
+  }
+}
