@@ -1,19 +1,14 @@
-// index.js
-
-// Importa el módulo de Express
 const express = require('express');
+const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000; // Puedes usar el puerto 3000 por defecto
+const port = process.env.PORT || 3000;
 
-// Middleware para parsear JSON
-app.use(express.json());
+app.use(express.static('dist'));
 
-// Ruta de ejemplo
-app.get('/', (req, res) => {
-  res.send('¡Hola, mundo!');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
-// Inicia el servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });
