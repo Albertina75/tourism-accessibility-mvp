@@ -1,13 +1,13 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App.js';
+import './styles.css'; // Asegúrate de que la ruta sea correcta
 
-const App = () => (
-  <div>
-    <h1>Tourism Accessibility MVP</h1>
-    <p>Bienvenido a la aplicación de accesibilidad en turismo</p>
-  </div>
-);
 
-// Usando React 18 y 'createRoot'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
