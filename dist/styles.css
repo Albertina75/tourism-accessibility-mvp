@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    color: #004080;
+  }
+  
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  a:focus, a:hover {
+    text-decoration: underline;
+    outline: 3px solid #ffcc00; /* Indicador de foco de alta visibilidad */
+  }
+  
+  .alt-text {
+    display: none; /* Para lectores de pantalla */
+  }
+  
