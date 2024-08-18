@@ -1,11 +1,18 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { defineConfig } from 'webpack';
 
-export default {
+// Obtén __dirname a partir de import.meta.url
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default defineConfig({
   entry: './src/index.js',
   output: {
-    path: path.resolve('dist'),
     filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),  // Usa __dirname para obtener la ruta correcta
+    clean: true,
   },
   module: {
     rules: [
@@ -15,13 +22,17 @@ export default {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: ['@babel/preset-env'],
           },
         },
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -30,5 +41,10 @@ export default {
       template: './src/index.html',
     }),
   ],
-  mode: 'development', // O 'production' dependiendo de tu entorno
-};
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 9000,
+  },
+  mode: 'development',
+});

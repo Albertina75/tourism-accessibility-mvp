@@ -1,31 +1,33 @@
 {
   "name": "tourism-accessibility-mvp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicación accesible para turismo inclusivo.",
   "main": "index.js",
+  "type": "module",  
   "scripts": {
-    "start": "node index.js",
-    "build": "webpack"
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
   },
-  "keywords": [],
   "author": "Albertina75",
-  "license": "MIT",
-  "type": "module",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "package-name": "^0.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/preset-env": "^7.21.0",
-    "@babel/preset-react": "^7.21.0",
-    "babel-loader": "^8.3.0",
-    "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.6.0",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.0",
-    "webpack-dev-server": "^5.0.0"
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/preset-react": "^7.14.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.27.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^5.0.4"
   }
 }
