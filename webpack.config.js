@@ -1,18 +1,10 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { defineConfig } from 'webpack';
-
-// Obtén __dirname a partir de import.meta.url
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default defineConfig({
+const path = require('path');
+module.exports = {
+  mode: 'development', // Establece el modo a 'development' o 'production'
   entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),  // Usa __dirname para obtener la ruta correcta
-    clean: true,
   },
   module: {
     rules: [
@@ -22,7 +14,7 @@ export default defineConfig({
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
@@ -30,21 +22,14 @@ export default defineConfig({
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 9000,
+  optimization: {
+    splitChunks: false, // Desactiva el code-splitting temporalmente
   },
-  mode: 'development',
-});
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9012, // Asegúrate de que el puerto no esté en uso
+  },
+};
