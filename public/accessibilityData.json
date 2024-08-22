@@ -1,0 +1,27 @@
+[
+    {
+      "lat": 40.748817,
+      "lng": -73.985428,
+      "type": "ramp",
+      "description": "Rampa de acceso en la entrada principal"
+    },
+    {
+      "lat": 40.749817,
+      "lng": -73.986428,
+      "type": "elevator",
+      "description": "Ascensor cerca de la cafetería"
+    },
+    {
+      "lat": 40.750817,
+      "lng": -73.987428,
+      "type": "accessible_bathroom",
+      "description": "Baño accesible para sillas de ruedas"
+    },
+    {
+      "lat": 40.751817,
+      "lng": -73.988428,
+      "type": "accessible_parking",
+      "description": "Espacio de estacionamiento accesible cerca de la entrada"
+    }
+  ]
+  

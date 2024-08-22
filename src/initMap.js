@@ -1,12 +1,12 @@
-// src/initMap.js
+// initMap.js
 
-export function initMap() {
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
-    });
-  }
-  
-  // Asegúrate de que `initMap` esté disponible globalmente para Google Maps
-  window.initMap = initMap;
-  
+function initMap() {
+  // Crea un nuevo mapa y lo asocia al elemento con ID "map"
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: { lat: -34.397, lng: 150.644 },
+  });
+}
+
+// Asegúrate de que la función `initMap` esté disponible globalmente
+window.initMap = initMap;

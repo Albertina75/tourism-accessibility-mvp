@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tourism Accessibility MVP</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Ruta correcta al archivo de estilos -->
 </head>
 <body>
+  <!-- Contenedor donde React montará la aplicación -->
   <div id="root"></div>
-  <div id="map" style="height: 400px; width: 100%;"></div>
 
-  <script src="bundle.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9YjKDDFMuUqjVV5jMi9Vy-H_zgFBSjDQ&callback=initMap"></script>
+  <!-- Contenedor para el mapa -->
+  <div id="map-container">
+    <div id="map" style="height: 100%; width: 100%;"></div>
+  </div>
+
+  <!-- Carga la API de Google Maps con async y defer -->
+  <script async
+          defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9YjKDDFMuUqjVV5jMi9Vy-H_zgFBSjDQ&callback=initMap">
+  </script>
+
+  <!-- Asegúrate de que el bundle.js se cargue después de Google Maps -->
+  <script src="/dist/bundle.js"></script>
 </body>
 </html>
