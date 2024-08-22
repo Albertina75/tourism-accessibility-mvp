@@ -1,6 +1,9 @@
+// src/index.js
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import './initMap'; // Esto asegura que initMap se ejecute y esté disponible globalmente
 
 function App() {
   return (

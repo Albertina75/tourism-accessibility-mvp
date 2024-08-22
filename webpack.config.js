@@ -1,10 +1,11 @@
 const path = require('path');
+
 module.exports = {
-  mode: 'development', // Establece el modo a 'development' o 'production'
+  mode: 'production', // Cambia a 'development' si estás en desarrollo
   entry: './src/index.js',
   output: {
+    filename: 'bundle-[contenthash].js', // Usa un nombre único para evitar conflictos
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -25,11 +26,16 @@ module.exports = {
     ],
   },
   optimization: {
-    splitChunks: false, // Desactiva el code-splitting temporalmente
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+      },
+    },
   },
   devServer: {
     static: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9012, // Asegúrate de que el puerto no esté en uso
+    port: 9020,
   },
 };
