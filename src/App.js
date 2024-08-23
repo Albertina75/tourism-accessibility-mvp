@@ -1,12 +1,11 @@
 import React, { useState, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
-import Page from './pages/Page';
-import TouristPlace from './pages/TouristPlace';
+import UserReviews from './components/UserReviews.js';
+import Page from './pages/Page.js';
+import TouristPlace from './pages/TouristPlace.js';
 
-// Carga diferida de los componentes
-const LazyUserReviews = lazy(() => import('./components/UserReviews'));
-const LazyMapComponent = lazy(() => import('./components/MapComponent'));
+const LazyMapComponent = lazy(() => import('./components/MapComponent.js'));
 
 function App() {
   const [highContrast, setHighContrast] = useState(false);
@@ -15,7 +14,7 @@ function App() {
   const samplePlaceId = '12345'; // ID de ejemplo
 
   return (
-    <Page>
+    <Page>  {/* Si decides usar el componente Page */}
       <div className={highContrast ? 'high-contrast' : ''}>
         <header>
           <h1>Tourism Accessibility MVP</h1>
@@ -40,8 +39,8 @@ function App() {
               <li>Recomendaciones personalizadas</li>
               <li>Reseñas y calificaciones</li>
             </ul>
-            <Suspense fallback={<div>Cargando reseñas...</div>}>
-              <LazyUserReviews placeId={samplePlaceId} />
+            <Suspense fallback={<div>Loading reviews...</div>}>
+              <UserReviews placeId={samplePlaceId} />
             </Suspense>
           </section>
           <section id="contact" className="container">
@@ -50,10 +49,11 @@ function App() {
             <address>
               <p>Email: <a href="mailto:info@tourismaccessibility.com">info@tourismaccessibility.com</a></p>
             </address>
-            <Suspense fallback={<div>Cargando mapa...</div>}>
+            <Suspense fallback={<div>Loading map...</div>}>
               <LazyMapComponent />
             </Suspense>
           </section>
+          {/* Usando TouristPlace si es necesario */}
           <TouristPlace placeId={samplePlaceId} />
         </main>
         <footer>

@@ -1,43 +1,41 @@
-import { fileURLToPath } from 'url';
-import { dirname, resolve, join } from 'path';
+const { resolve, join } = require('path');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export const mode = 'production';
-export const entry = './src/index.js';
-export const output = {
-  filename: 'bundle-[contenthash].js',
-  path: resolve(__dirname, 'dist'),
-};
-export const module = {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+module.exports = {
+  mode: 'production',
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle-[contenthash].js', // Usa un nombre único para evitar conflictos
+    path: resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
-    },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
-    },
-  ],
-};
-export const optimization = {
-  splitChunks: {
-    cacheGroups: {
-      default: false,
-      vendors: false,
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+      },
     },
   },
-};
-export const devServer = {
-  static: join(__dirname, 'dist'),
-  compress: true,
-  port: 9336,
+  devServer: {
+    static: join(__dirname, 'dist'),
+    compress: true,
+    port: 13676,
+  },
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import App from './App.js';
 import './styles.css'; // Importa los estilos globales
-import './initMap'; // Importa el archivo que configura Google Maps, si es necesario
+import './initMap.js'; // Importa el archivo que configura Google Maps, si es necesario
 
 // Encuentra el elemento con el ID 'root' en el HTML
 const rootElement = document.getElementById('root');
