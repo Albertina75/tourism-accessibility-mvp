@@ -1,10 +1,11 @@
 import React, { useState, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
-import UserReviews from './components/UserReviews';
 import Page from './pages/Page';
 import TouristPlace from './pages/TouristPlace';
 
+// Carga diferida de los componentes
+const LazyUserReviews = lazy(() => import('./components/UserReviews'));
 const LazyMapComponent = lazy(() => import('./components/MapComponent'));
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const samplePlaceId = '12345'; // ID de ejemplo
 
   return (
-    <Page>  {/* Si decides usar el componente Page */}
+    <Page>
       <div className={highContrast ? 'high-contrast' : ''}>
         <header>
           <h1>Tourism Accessibility MVP</h1>
@@ -39,8 +40,8 @@ function App() {
               <li>Recomendaciones personalizadas</li>
               <li>Reseñas y calificaciones</li>
             </ul>
-            <Suspense fallback={<div>Loading reviews...</div>}>
-              <UserReviews placeId={samplePlaceId} />
+            <Suspense fallback={<div>Cargando reseñas...</div>}>
+              <LazyUserReviews placeId={samplePlaceId} />
             </Suspense>
           </section>
           <section id="contact" className="container">
@@ -49,11 +50,10 @@ function App() {
             <address>
               <p>Email: <a href="mailto:info@tourismaccessibility.com">info@tourismaccessibility.com</a></p>
             </address>
-            <Suspense fallback={<div>Loading map...</div>}>
+            <Suspense fallback={<div>Cargando mapa...</div>}>
               <LazyMapComponent />
             </Suspense>
           </section>
-          {/* Usando TouristPlace si es necesario */}
           <TouristPlace placeId={samplePlaceId} />
         </main>
         <footer>
