@@ -1,8 +1,6 @@
-// initMap.js
-
 function initMap() {
   // Crea un nuevo mapa y lo asocia al elemento con ID "map"
-  const map = new google.maps.Map(document.getElementById("map"), {
+  new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
     center: { lat: -34.397, lng: 150.644 },
   });
