@@ -1,8 +1,8 @@
 import React, { useState, Suspense, lazy } from 'react';
 import './styles.css';
-import UserReviews from 'UserReviews.js';
-import Page from 'Page.js';
-import TouristPlace from 'TouristPlace.js';
+import UserReviews from './components/UserReviews.js';
+import Page from './pages/Page.js';
+import TouristPlace from './pages/TouristPlace.js';
 
 const LazyMapComponent = lazy(() => import('./components/MapComponent.js')); // Agrega la extensión .js
 
