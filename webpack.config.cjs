@@ -10,6 +10,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -19,10 +23,7 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
+      
     ],
   },
   optimization: {
@@ -36,6 +37,6 @@ module.exports = {
   devServer: {
     static: join(__dirname, 'dist'),
     compress: true,
-    port:11744,
+    port:18732,
   },
 };
