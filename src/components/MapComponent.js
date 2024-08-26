@@ -15,7 +15,7 @@ const MapComponent = () => {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD9YjKDDFMuUqjVV5jMi9Vy-H_zgFBSjDQ&callback=initMap`;
     script.async = true;
-    script.defer = true;
+    script.defer = false;
     document.body.appendChild(script);
 
     // Limpiar el script cuando el componente se desmonte
