@@ -32,6 +32,7 @@ function App() {
             <h2>Bienvenido</h2>
             <p>Explora cómo mejorar la accesibilidad en el turismo con nuestras herramientas y técnicas innovadoras.</p>
           </section>
+
           <section id="features" className="container">
             <h2>Características</h2>
             <ul>
@@ -39,23 +40,28 @@ function App() {
               <li>Recomendaciones personalizadas</li>
               <li>Reseñas y calificaciones</li>
             </ul>
-            <Suspense fallback={<div>Loading reviews...</div>}>
+            {/* Inserción del componente de reseñas */}
+            <Suspense fallback={<div>Cargando reseñas...</div>}>
               <UserReviews placeId={samplePlaceId} />
             </Suspense>
           </section>
+
           <section id="contact" className="container">
             <h2>Contacto</h2>
             <p>Si tienes alguna pregunta o sugerencia, no dudes en contactarnos:</p>
             <address>
               <p>Email: <a href="mailto:info@tourismaccessibility.com">info@tourismaccessibility.com</a></p>
             </address>
-            <Suspense fallback={<div>Loading map...</div>}>
+            {/* Inserción del componente de mapa */}
+            <Suspense fallback={<div>Cargando mapa...</div>}>
               <LazyMapComponent />
             </Suspense>
           </section>
+
           {/* Usando TouristPlace si es necesario */}
           <TouristPlace placeId={samplePlaceId} />
         </main>
+
         <footer>
           <p>&copy; 2024 Tourism Accessibility MVP. Todos los derechos reservados.</p>
         </footer>
