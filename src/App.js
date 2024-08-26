@@ -22,11 +22,14 @@ function App() {
             <ul>
               <li><a href="#home">Inicio</a></li>
               <li><a href="#features">Características</a></li>
+              <li><a href="#reviews">Opiniones</a></li>
+              <li><a href="#map">Mapa</a></li>
               <li><a href="#contact">Contacto</a></li>
               <li><button onClick={toggleContrast}>Alto Contraste</button></li>
             </ul>
           </nav>
         </header>
+
         <main>
           <section id="home" className="container">
             <h2>Bienvenido</h2>
@@ -40,9 +43,21 @@ function App() {
               <li>Recomendaciones personalizadas</li>
               <li>Reseñas y calificaciones</li>
             </ul>
-            {/* Inserción del componente de reseñas */}
+          </section>
+
+          {/* Sección de Opiniones */}
+          <section id="reviews" className="container">
+            <h2>Opiniones de Usuarios</h2>
             <Suspense fallback={<div>Cargando reseñas...</div>}>
               <UserReviews placeId={samplePlaceId} />
+            </Suspense>
+          </section>
+
+          {/* Sección de Mapa */}
+          <section id="map" className="container">
+            <h2>Ubicación en el Mapa</h2>
+            <Suspense fallback={<div>Cargando mapa...</div>}>
+              <LazyMapComponent />
             </Suspense>
           </section>
 
@@ -52,10 +67,6 @@ function App() {
             <address>
               <p>Email: <a href="mailto:info@tourismaccessibility.com">info@tourismaccessibility.com</a></p>
             </address>
-            {/* Inserción del componente de mapa */}
-            <Suspense fallback={<div>Cargando mapa...</div>}>
-              <LazyMapComponent />
-            </Suspense>
           </section>
 
           {/* Usando TouristPlace si es necesario */}
