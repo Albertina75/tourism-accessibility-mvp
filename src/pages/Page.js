@@ -19,4 +19,4 @@ Page.propTypes = {
   children: PropTypes.node, // Validación para `children`
 };
 
-export default Page.js;
+export default Page;

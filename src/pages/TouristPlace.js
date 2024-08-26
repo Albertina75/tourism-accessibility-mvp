@@ -16,4 +16,4 @@ TouristPlace.propTypes = {
   children: PropTypes.node, // Validación para `children`
 };
 
-export default TouristPlace.js;
+export default TouristPlace;
