@@ -5,6 +5,5 @@ function initMap() {
     center: { lat: -34.397, lng: 150.644 },
   });
 }
-
 // Asegúrate de que la función `initMap` esté disponible globalmente
 window.initMap = initMap;
