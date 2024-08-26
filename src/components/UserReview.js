@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import UserReview from './components/UserReview.js';
-import ReviewForm from './components/ReviewForm.js'; // Corregido el nombre de importación
+import UserReview from './UserReview.js'; // Ruta corregida
+import ReviewForm from './ReviewForm.js'; // Ruta corregida
 
 const UserReviews = ({ placeId }) => {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +12,7 @@ const UserReviews = ({ placeId }) => {
   }, [placeId]);
 
   const addReview = (review) => {
-    console.log("Nuevo review añadido:", review.js);
+    console.log("Nuevo review añadido:", review);
     setReviews([...reviews, review]);
   };
 
