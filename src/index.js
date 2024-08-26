@@ -1,10 +1,10 @@
 import React, { useState, Suspense, lazy } from 'react';
 import './styles.css';
-import UserReviews from './components/UserReviews';
-import Page from './pages/Page';
-import TouristPlace from './pages/TouristPlace';
+import UserReviews from 'UserReviews.js';
+import Page from 'Page.js';
+import TouristPlace from 'TouristPlace.js';
 
-const LazyMapComponent = lazy(() => import('./components/MapComponent'));
+const LazyMapComponent = lazy(() => import('./components/MapComponent.js')); // Agrega la extensión .js
 
 function App() {
   const [highContrast, setHighContrast] = useState(false);
@@ -62,5 +62,4 @@ function App() {
   );
 }
 
-// Exporta el componente App como exportación por defecto
 export default App;

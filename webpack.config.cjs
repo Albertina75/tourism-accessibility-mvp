@@ -36,6 +36,6 @@ module.exports = {
   devServer: {
     static: join(__dirname, 'dist'),
     compress: true,
-    port:14032,
+    port:16984,
   },
 };
