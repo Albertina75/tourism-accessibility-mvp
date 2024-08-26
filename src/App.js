@@ -66,4 +66,4 @@ function App() {
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
-root.render(<App />);
+root.render(<App.js />);

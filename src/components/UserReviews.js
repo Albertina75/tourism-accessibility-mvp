@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import UserReview from './UserReview';
-import ReviewForm from './ReviewForm';
+import UserReview from './UserReview.js';
+import ReviewForm from './ReviewForm.js';
 
 const UserReviews = ({ placeId }) => {
   const [reviews, setReviews] = useState([]);

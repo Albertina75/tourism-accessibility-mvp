@@ -13,6 +13,6 @@ const root = createRoot(rootElement);
 // Renderizar el componente App dentro de React.StrictMode
 root.render(
   <React.StrictMode>
-    <App />
+    <App.js />
   </React.StrictMode>
 );
