@@ -1,20 +1,25 @@
 import React, { useState, Suspense, lazy } from 'react';
+import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import UserReviews from './components/UserReviews.js';
 import Page from './pages/Page.js';
 import TouristPlace from './pages/TouristPlace.js';
 
+// Carga dinámica del MapComponent
 const LazyMapComponent = lazy(() => import('./components/MapComponent.js'));
 
 function App() {
+  const [showMap, setShowMap] = useState(false); // Estado para mostrar/ocultar el mapa
   const [highContrast, setHighContrast] = useState(false);
+  
   const toggleContrast = () => setHighContrast(!highContrast);
+  const toggleMap = () => setShowMap(!showMap);
 
   const samplePlaceId = '12345'; // ID de ejemplo
 
   return (
-    <Page>  {/* Si decides usar el componente Page */}
+    <Page>
       <div className={highContrast ? 'high-contrast' : ''}>
         <header>
           <h1>Tourism Accessibility MVP</h1>
@@ -23,7 +28,7 @@ function App() {
               <li><a href="#home">Inicio</a></li>
               <li><a href="#features">Características</a></li>
               <li><a href="#reviews">Opiniones</a></li>
-              <li><a href="#map">Mapa</a></li>
+              <li><a href="#map" onClick={toggleMap}>{showMap ? 'Ocultar Mapa' : 'Mostrar Mapa'}</a></li>
               <li><a href="#contact">Contacto</a></li>
               <li><button onClick={toggleContrast}>Alto Contraste</button></li>
             </ul>
@@ -45,7 +50,6 @@ function App() {
             </ul>
           </section>
 
-          {/* Sección de Opiniones */}
           <section id="reviews" className="container">
             <h2>Opiniones de Usuarios</h2>
             <Suspense fallback={<div>Cargando reseñas...</div>}>
@@ -56,9 +60,11 @@ function App() {
           {/* Sección de Mapa */}
           <section id="map" className="container">
             <h2>Ubicación en el Mapa</h2>
-            <Suspense fallback={<div>Cargando mapa...</div>}>
-              <LazyMapComponent />
-            </Suspense>
+            {showMap && (
+              <Suspense fallback={<div>Cargando mapa...</div>}>
+                <LazyMapComponent />
+              </Suspense>
+            )}
           </section>
 
           <section id="contact" className="container">
@@ -69,7 +75,6 @@ function App() {
             </address>
           </section>
 
-          {/* Usando TouristPlace si es necesario */}
           <TouristPlace placeId={samplePlaceId} />
         </main>
 
@@ -80,7 +85,8 @@ function App() {
     </Page>
   );
 }
-
+ReactDOM(<App />, document.getElementById('root'));
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 root.render(<App />);
+export default App;
